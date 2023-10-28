@@ -38,7 +38,6 @@ public class SingleLinkedList<E> implements Iterable<E> {
             }
         };
     }
-
     @Override
     public String toString() {
         var sj = new StringJoiner(",", "[", "]");
@@ -49,8 +48,6 @@ public class SingleLinkedList<E> implements Iterable<E> {
         }
         return sj.toString();
     }
-
-
     public boolean add(E element) {
         var newNode = new Node<>(element);
         if (this.head == null) {
@@ -64,7 +61,6 @@ public class SingleLinkedList<E> implements Iterable<E> {
         this.size++;
         return true;
     }
-
     public boolean addAtBeginning(E element) {
         var newNode = new Node<>(element);
         if (head != null) {
@@ -74,14 +70,12 @@ public class SingleLinkedList<E> implements Iterable<E> {
         size++;
         return true;
     }
-
     public boolean removeFromBeginning() {
         if (head == null) return false;
         head = head.next;
         size--;
         return true;
     }
-
     public boolean remove(int index) {
         Objects.checkIndex(index, size);
         if (index == 0) {
@@ -98,11 +92,9 @@ public class SingleLinkedList<E> implements Iterable<E> {
 
         return true;
     }
-
     public Integer size() {
         return size;
     }
-
     public E get(int index) {
         Objects.checkIndex(index, size);
         if (index == 0)
@@ -115,7 +107,6 @@ public class SingleLinkedList<E> implements Iterable<E> {
         return current.element;
 
     }
-
     public boolean set(int index, E element) {
         Objects.checkIndex(index, size);
         var newNode = new Node<>(element);
@@ -135,7 +126,6 @@ public class SingleLinkedList<E> implements Iterable<E> {
             return true;
         }
     }
-
     public boolean remove(Object o) {
         if (head == null) return false;
         Node<E> prev = null;
@@ -154,22 +144,6 @@ public class SingleLinkedList<E> implements Iterable<E> {
 
         }
         return false;
-    }
-
-
-    public static void main(String[] args) {
-        SingleLinkedList<String> linkedList = new SingleLinkedList<>();
-        linkedList.add("Sunnat1");
-        linkedList.add("Scala");
-        linkedList.add("Sunnat3");
-        linkedList.add("Sunnat4");
-        linkedList.addAtBeginning("java");
-        System.out.println(linkedList);
-        System.out.println(linkedList.set(4, "Bahodir"));
-        System.out.println(linkedList);
-        System.out.println(linkedList.size);
-
-
     }
 
 }
